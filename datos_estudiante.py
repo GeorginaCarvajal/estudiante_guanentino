@@ -15,6 +15,10 @@ frame_entrada = Frame(ventana_principal)
 frame_entrada.config(bg="white", width=480, height=220)
 frame_entrada.place(x=10, y=10)
 
+logo = PhotoImage(file="img/escudo_colegio.png")
+lb_logo = Label(frame_entrada, image=logo, bg="white")
+lb_logo.place(x=40, y=60)
+
 titulo = Label(ventana_principal, text="Datos basicos del estudiante")
 titulo.config(bg = "white",fg="black", font=("BlackJack", 12))
 titulo.place(x=145,y=15)
@@ -65,17 +69,17 @@ entry_h.focus_set()
 entry_h.place(x=230,y=160)
 
 frame_2 = Frame(ventana_principal)
-frame_2.config(bg="white", width=480, height=270)
+frame_2.config(bg="white", width=480, height=290)
 frame_2.place(x=10, y=240)
 
 img = PhotoImage(file="img/calificaciones.png")
 
 botonCalificaciones = Button(frame_2, width=180, height=210, image=img,justify="center")
-botonCalificaciones.place(x=30, y=25)
+botonCalificaciones.place(x=30, y=35)
 
 img2 = PhotoImage(file="img/imc.png")
 
 botonImc = Button(frame_2, width=190, height=180, image=img2,justify="center")
-botonImc.place(x=250, y=40)
+botonImc.place(x=250, y=50)
 
 ventana_principal.mainloop()
