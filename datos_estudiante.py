@@ -10,16 +10,37 @@ def abrir_toplevel_calificaciones():
     toplevel_calificaciones.geometry("500x300")
     toplevel_calificaciones.config(bg="black")
     
-    frame_entrada = Frame(toplevel_calificaciones)
-    frame_entrada.config(bg="white", width=480, height=280)
-    frame_entrada.place(x=10, y=10)
+    frame_entrada1 = Frame(toplevel_calificaciones)
+    frame_entrada1.config(bg="white", width=480, height=280)
+    frame_entrada1.place(x=10, y=10)
 
     titulo = Label(toplevel_calificaciones, text="Informacion Academica")
     titulo.config(bg = "white",fg="black", font=("BlackJack", 12))
     titulo.place(x=175,y=15)
 
-    lb_logo = Label(frame_entrada, image=img, bg="white")
+    lb_logo = Label(frame_entrada1, image=img, bg="white")
     lb_logo.place(x=10,y=35)
+
+    def salir():
+        messagebox.showinfo("Calificaciones", "La app se va a cerrar")
+    ventana_principal.destroy
+
+    lb_a = Label(frame_entrada1, text = "Asignatura : ")
+    lb_a.config(bg="white", fg="purple4", font=("Abcissa", 13))
+    lb_a.place(x=220, y=55)
+
+    lista_desplegable = ttk.Combobox(frame_entrada1, width=20)
+    lista_desplegable.place (x=320, y=55)
+        
+    opciones = ["Estadistica", "Trigonometria y Geometria Analitica", "Valores", "Filosofia", "Lengua Castellana", "Ingles", "Artistica", "Quimica", "Fisica", "Ed.Fisica", "Ed.Religiosa", "Sociales", "Politica"]
+    lista_desplegable["values"]=opciones
+
+    bt_obtener = Button(frame_entrada1, text="obtener")
+    bt_obtener.place(x=250, y=100, width=70, height=40)
+
+    bt_salir = Button(frame_entrada1, text="Salir", command=salir)
+    bt_salir.place(x=350, y=100, width=70, height=40)
+  
 
 def abrir_toplevel_imc():
     global toplevel_imc
