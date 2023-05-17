@@ -7,11 +7,11 @@ def abrir_toplevel_calificaciones():
     toplevel_calificaciones = Toplevel()
     toplevel_calificaciones.title("Calificaciones")
     toplevel_calificaciones.resizable(False, False)
-    toplevel_calificaciones.geometry("500x300")
+    toplevel_calificaciones.geometry("500x400")
     toplevel_calificaciones.config(bg="black")
     
     frame_entrada1 = Frame(toplevel_calificaciones)
-    frame_entrada1.config(bg="white", width=480, height=280)
+    frame_entrada1.config(bg="white", width=480, height=380)
     frame_entrada1.place(x=10, y=10)
 
     titulo = Label(toplevel_calificaciones, text="Informacion Academica")
@@ -19,7 +19,7 @@ def abrir_toplevel_calificaciones():
     titulo.place(x=175,y=15)
 
     lb_logo = Label(frame_entrada1, image=img, bg="white")
-    lb_logo.place(x=10,y=35)
+    lb_logo.place(x=25,y=75)
 
     def salir():
         messagebox.showinfo("Calificaciones", "La app se va a cerrar")
@@ -34,12 +34,64 @@ def abrir_toplevel_calificaciones():
         
     opciones = ["Estadistica", "Trigonometria y Geometria Analitica", "Valores", "Filosofia", "Lengua Castellana", "Ingles", "Artistica", "Quimica", "Fisica", "Ed.Fisica", "Ed.Religiosa", "Sociales", "Politica"]
     lista_desplegable["values"]=opciones
+    
+    def nota_definitiva():
+        cognitivo = float(entry_c.get())
+        procedimental = float(entry_p.get())
+        actitudinal = float(entry_a.get())
+        autoevaluacion = float(entry_au.get())
+        bimestral = float(entry_b.get())
+
+    lb_c = Label(frame_entrada1, text = "Cognitivo : ")
+    lb_c.config(bg="white", fg="blue", font=("Abcissa", 12))
+    lb_c.place(x=220, y=140)
+
+    entry_c = Entry(frame_entrada1, textvariable=c)
+    entry_c.config(bg="white", fg="black", font=("Abcissa", 12), width=6)
+    entry_c.focus_set()
+    entry_c.place(x=350,y=140)
+
+    lb_p = Label(frame_entrada1, text = "Procedimental : ")
+    lb_p.config(bg="white", fg="gold2", font=("Abcissa", 12))
+    lb_p.place(x=220, y=170)
+
+    entry_p = Entry(frame_entrada1, textvariable=p)
+    entry_p.config(bg="white", fg="black", font=("Abcissa", 12), width=6)
+    entry_p.focus_set()
+    entry_p.place(x=350,y=170)
+
+    lb_a = Label(frame_entrada1, text = "Actitudinal : ")
+    lb_a.config(bg="white", fg="magenta4", font=("Abcissa", 12))
+    lb_a.place(x=220, y=200)
+
+    entry_a = Entry(frame_entrada1, textvariable=a)
+    entry_a.config(bg="white", fg="black", font=("Abcissa", 12), width=6)
+    entry_a.focus_set()
+    entry_a.place(x=350,y=200)
+
+    lb_au = Label(frame_entrada1, text = "Autoevaluacion : ")
+    lb_au.config(bg="white", fg="green4", font=("Abcissa", 12))
+    lb_au.place(x=220, y=230)
+
+    entry_au = Entry(frame_entrada1, textvariable=au)
+    entry_au.config(bg="white", fg="black", font=("Abcissa", 12), width=6)
+    entry_au.focus_set()
+    entry_au.place(x=350,y=230)
+
+    lb_b = Label(frame_entrada1, text = "Bimestral : ")
+    lb_b.config(bg="white", fg="maroon", font=("Abcissa", 12))
+    lb_b.place(x=220, y=260)
+
+    entry_b = Entry(frame_entrada1, textvariable=b)
+    entry_b.config(bg="white", fg="black", font=("Abcissa", 12), width=6)
+    entry_b.focus_set()
+    entry_b.place(x=350,y=260)
 
     bt_obtener = Button(frame_entrada1, text="obtener")
-    bt_obtener.place(x=250, y=100, width=70, height=40)
+    bt_obtener.place(x=250, y=90, width=70, height=40)
 
     bt_salir = Button(frame_entrada1, text="Salir", command=salir)
-    bt_salir.place(x=350, y=100, width=70, height=40)
+    bt_salir.place(x=350, y=90, width=70, height=40)
   
 
 def abrir_toplevel_imc():
@@ -123,6 +175,10 @@ ventana_principal.config(bg="black")
 
 p = StringVar()
 e = StringVar()
+c = StringVar()
+a = StringVar()
+au = StringVar ()
+b = StringVar()
 global logo
 
 barra_menu = Menu()
