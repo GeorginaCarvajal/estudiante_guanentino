@@ -27,10 +27,10 @@ def abrir_toplevel_calificaciones():
 
     lb_a = Label(frame_entrada1, text = "Asignatura : ")
     lb_a.config(bg="white", fg="purple4", font=("Abcissa", 13))
-    lb_a.place(x=220, y=55)
+    lb_a.place(x=190, y=50)
 
     lista_desplegable = ttk.Combobox(frame_entrada1, width=20)
-    lista_desplegable.place (x=320, y=55)
+    lista_desplegable.place (x=300, y=50)
         
     opciones = ["Estadistica", "Trigonometria y Geometria Analitica", "Valores", "Filosofia", "Lengua Castellana", "Ingles", "Artistica", "Quimica", "Fisica", "Ed.Fisica", "Ed.Religiosa", "Sociales", "Politica"]
     lista_desplegable["values"]=opciones
@@ -41,6 +41,18 @@ def abrir_toplevel_calificaciones():
         actitudinal = float(entry_a.get())
         autoevaluacion = float(entry_au.get())
         bimestral = float(entry_b.get())
+        
+        nota_definitiva = (cognitivo + procedimental + actitudinal + autoevaluacion + bimestral) / 5
+     
+        lb_r = Label(frame_entrada1, text =("Nota definitiva: " + str(nota_definitiva) ))  
+        lb_r.config(bg="white", fg="black", font=("Abcissa", 15))
+        lb_r.place(x=200, y=300)
+
+        if nota_definitiva < 30:
+            messagebox.showinfo("Resultado", "El alumno reprobo la asignatura  :()")
+        else:
+             messagebox.showinfo("Resultado", "El alumno aprobo la asignatura :)")
+      
 
     lb_c = Label(frame_entrada1, text = "Cognitivo : ")
     lb_c.config(bg="white", fg="blue", font=("Abcissa", 12))
@@ -49,7 +61,11 @@ def abrir_toplevel_calificaciones():
     entry_c = Entry(frame_entrada1, textvariable=c)
     entry_c.config(bg="white", fg="black", font=("Abcissa", 12), width=6)
     entry_c.focus_set()
-    entry_c.place(x=350,y=140)
+    entry_c.place(x=360,y=140)
+
+    lb_c = Label(frame_entrada1, text = "30%")
+    lb_c.config(bg="white", fg="blue", font=("Abcissa", 12))
+    lb_c.place(x=430, y=140)
 
     lb_p = Label(frame_entrada1, text = "Procedimental : ")
     lb_p.config(bg="white", fg="gold2", font=("Abcissa", 12))
@@ -58,7 +74,11 @@ def abrir_toplevel_calificaciones():
     entry_p = Entry(frame_entrada1, textvariable=p)
     entry_p.config(bg="white", fg="black", font=("Abcissa", 12), width=6)
     entry_p.focus_set()
-    entry_p.place(x=350,y=170)
+    entry_p.place(x=360,y=170)
+
+    lb_p = Label(frame_entrada1, text = "30% ")
+    lb_p.config(bg="white", fg="gold2", font=("Abcissa", 12))
+    lb_p.place(x=430, y=170)
 
     lb_a = Label(frame_entrada1, text = "Actitudinal : ")
     lb_a.config(bg="white", fg="magenta4", font=("Abcissa", 12))
@@ -67,7 +87,11 @@ def abrir_toplevel_calificaciones():
     entry_a = Entry(frame_entrada1, textvariable=a)
     entry_a.config(bg="white", fg="black", font=("Abcissa", 12), width=6)
     entry_a.focus_set()
-    entry_a.place(x=350,y=200)
+    entry_a.place(x=360,y=200)
+
+    lb_a = Label(frame_entrada1, text = "10%")
+    lb_a.config(bg="white", fg="magenta4", font=("Abcissa", 12))
+    lb_a.place(x=430, y=200)
 
     lb_au = Label(frame_entrada1, text = "Autoevaluacion : ")
     lb_au.config(bg="white", fg="green4", font=("Abcissa", 12))
@@ -76,7 +100,11 @@ def abrir_toplevel_calificaciones():
     entry_au = Entry(frame_entrada1, textvariable=au)
     entry_au.config(bg="white", fg="black", font=("Abcissa", 12), width=6)
     entry_au.focus_set()
-    entry_au.place(x=350,y=230)
+    entry_au.place(x=360,y=230)
+
+    lb_au = Label(frame_entrada1, text = "10%")
+    lb_au.config(bg="white", fg="green4", font=("Abcissa", 12))
+    lb_au.place(x=430, y=230)
 
     lb_b = Label(frame_entrada1, text = "Bimestral : ")
     lb_b.config(bg="white", fg="maroon", font=("Abcissa", 12))
@@ -85,10 +113,14 @@ def abrir_toplevel_calificaciones():
     entry_b = Entry(frame_entrada1, textvariable=b)
     entry_b.config(bg="white", fg="black", font=("Abcissa", 12), width=6)
     entry_b.focus_set()
-    entry_b.place(x=350,y=260)
+    entry_b.place(x=360,y=260)
 
-    bt_obtener = Button(frame_entrada1, text="obtener")
-    bt_obtener.place(x=250, y=90, width=70, height=40)
+    lb_b = Label(frame_entrada1, text = "20%")
+    lb_b.config(bg="white", fg="maroon", font=("Abcissa", 12))
+    lb_b.place(x=430, y=260)
+
+    bt_calcular = Button(frame_entrada1, text="Calcular", command=nota_definitiva)
+    bt_calcular.place(x=250, y=90, width=70, height=40)
 
     bt_salir = Button(frame_entrada1, text="Salir", command=salir)
     bt_salir.place(x=350, y=90, width=70, height=40)
@@ -145,21 +177,21 @@ def abrir_toplevel_imc():
 
     lb_p = Label(frame_entrada, text = "Peso(kg) = ")
     lb_p.config(bg="white", fg="blue", font=("Abcissa", 15))
-    lb_p.place(x=240, y=40)
+    lb_p.place(x=230, y=40)
 
     entry_p = Entry(frame_entrada, textvariable=p)
     entry_p.config(bg="white", fg="black", font=("Abcissa", 15), width=6)
     entry_p.focus_set()
-    entry_p.place(x=370,y=40)
+    entry_p.place(x=375,y=40)
 
     lb_e = Label(frame_entrada, text = "Estatura(m) = ")
     lb_e.config(bg="white", fg="gold2", font=("Abcissa", 15))
-    lb_e.place(x=240, y=70)
+    lb_e.place(x=230, y=80)
 
     entry_e = Entry(frame_entrada, textvariable=e)
     entry_e.config(bg="white", fg="black", font=("Abcissa", 15), width=6)
     entry_e.focus_set()
-    entry_e.place(x=370,y=70)
+    entry_e.place(x=375,y=80)
 
     bt_calcular = Button(frame_entrada, text="Calcular", command=imc)
     bt_calcular.place(x=250, y=130, width=70, height=40)
@@ -169,7 +201,7 @@ def abrir_toplevel_imc():
 
 ventana_principal = Tk()
 ventana_principal.title("Perfil del Estudiante")
-ventana_principal.geometry("500x500")
+ventana_principal.geometry("500x540")
 ventana_principal.resizable(False, False)
 ventana_principal.config(bg="black")
 
@@ -197,47 +229,47 @@ titulo.config(bg = "white",fg="black", font=("BlackJack", 12))
 titulo.place(x=145,y=15)
 
 lb_c = Label(frame_entrada, text = "Nombre : ")
-lb_c.config(bg="white", fg="green3", font=("Abcissa", 12))
+lb_c.config(bg="white", fg="green3", font=("Abcissa", 10))
 lb_c.place(x=150, y=40)
 
 entry_c = Entry(frame_entrada)
-entry_c.config(bg="white", fg="black", font=("Abcissa", 12), width=25)
+entry_c.config(bg="white", fg="black", font=("Abcissa", 10), width=25)
 entry_c.focus_set()
 entry_c.place(x=230,y=40)
 
 lb_d = Label(frame_entrada, text = "Grado : ")
-lb_d.config(bg="white", fg="blue2", font=("Abcissa", 12))
+lb_d.config(bg="white", fg="blue2", font=("Abcissa", 10))
 lb_d.place(x=150, y=70)
 
 entry_d = Entry(frame_entrada)
-entry_d.config(bg="white", fg="black", font=("Abcissa", 12), width=25)
+entry_d.config(bg="white", fg="black", font=("Abcissa", 10), width=25)
 entry_d.focus_set()
 entry_d.place(x=230,y=70)
 
 lb_k = Label(frame_entrada, text = "Edad : ")
-lb_k.config(bg="white", fg="red3", font=("Abcissa", 12))
+lb_k.config(bg="white", fg="red3", font=("Abcissa", 10))
 lb_k.place(x=150, y=100)
 
 entry_k = Entry(frame_entrada)
-entry_k.config(bg="white", fg="black", font=("Abcissa", 12), width=25)
+entry_k.config(bg="white", fg="black", font=("Abcissa", 10), width=25)
 entry_k.focus_set()
 entry_k.place(x=230,y=100)
 
 lb_r = Label(frame_entrada, text = "Dirección : ")
-lb_r.config(bg="white", fg="purple3", font=("Abcissa", 12))
+lb_r.config(bg="white", fg="purple3", font=("Abcissa", 10))
 lb_r.place(x=150, y=130)
 
 entry_r = Entry(frame_entrada)
-entry_r.config(bg="white", fg="black", font=("Abcissa", 12), width=25)
+entry_r.config(bg="white", fg="black", font=("Abcissa", 10), width=25)
 entry_r.focus_set()
 entry_r.place(x=230,y=130)
 
 lb_h = Label(frame_entrada, text = "Teléfono : ")
-lb_h.config(bg="white", fg="violet red", font=("Abcissa", 12))
+lb_h.config(bg="white", fg="violet red", font=("Abcissa", 10))
 lb_h.place(x=150, y=160)
 
 entry_h = Entry(frame_entrada)
-entry_h.config(bg="white", fg="black", font=("Abcissa", 12), width=25)
+entry_h.config(bg="white", fg="black", font=("Abcissa", 10), width=25)
 entry_h.focus_set()
 entry_h.place(x=230,y=160)
 
