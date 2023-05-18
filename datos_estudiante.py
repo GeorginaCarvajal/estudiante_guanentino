@@ -25,7 +25,7 @@ def abrir_toplevel_calificaciones():
 
     def salir():
         messagebox.showinfo("Calificaciones", "La app se va a cerrar")
-    ventana_principal.destroy
+    toplevel_calificaciones.destroy
 
     lb_a = Label(frame_entrada1, text = "Asignatura : ")
     lb_a.config(bg="white", fg="purple4", font=("Abcissa", 13))
@@ -52,7 +52,7 @@ def abrir_toplevel_calificaciones():
         lb_r.place(x=200, y=300)
 
         if nota_definitiva < 30:
-            messagebox.showinfo("Resultado", "El alumno reprobo la asignatura  :()")
+            messagebox.showinfo("Resultado", "El alumno reprobo la asignatura  :(")
         else:
              messagebox.showinfo("Resultado", "El alumno aprobo la asignatura :)")
       
@@ -150,7 +150,7 @@ def abrir_toplevel_imc():
 
     def salir():
         messagebox.showinfo("IMC", "La app se va a cerrar")
-    ventana_principal.destroy
+    toplevel_imc.destroy
 
     def imc():
         estatura = float(entry_e.get())
@@ -203,7 +203,7 @@ def abrir_toplevel_imc():
     bt_salir.place(x=360, y=130, width=70, height=40)
 
 ventana_principal = Tk()
-ventana_principal.title("Perfil del Estudiante")
+ventana_principal.title("Georgina Carvajal :)")
 ventana_principal.geometry("500x540")
 ventana_principal.resizable(False, False)
 ventana_principal.config(bg="black")
