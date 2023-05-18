@@ -23,8 +23,6 @@ def abrir_toplevel_calificaciones():
     lb_logo = Label(frame_entrada1, image=img, bg="white")
     lb_logo.place(x=25,y=75)
 
-    def salir():
-        messagebox.showinfo("Calificaciones", "La app se va a cerrar")
     toplevel_calificaciones.destroy
 
     lb_a = Label(frame_entrada1, text = "Asignatura : ")
@@ -125,7 +123,7 @@ def abrir_toplevel_calificaciones():
     bt_calcular = Button(frame_entrada1, text="Calcular", command=nota_definitiva)
     bt_calcular.place(x=250, y=90, width=70, height=40)
 
-    bt_salir = Button(frame_entrada1, text="Salir", command=salir)
+    bt_salir = Button(frame_entrada1, text="Salir",command=toplevel_calificaciones.destroy)
     bt_salir.place(x=350, y=90, width=70, height=40)
   
 
@@ -148,9 +146,7 @@ def abrir_toplevel_imc():
     lb_logo2 = Label(frame_entrada, image=img2, bg="white")
     lb_logo2.place(x=10,y=30)
 
-    def salir():
-        messagebox.showinfo("IMC", "La app se va a cerrar")
-    toplevel_imc.destroy
+
 
     def imc():
         estatura = float(entry_e.get())
@@ -199,7 +195,7 @@ def abrir_toplevel_imc():
     bt_calcular = Button(frame_entrada, text="Calcular", command=imc)
     bt_calcular.place(x=250, y=130, width=70, height=40)
 
-    bt_salir = Button(frame_entrada, text="Salir", command=salir)
+    bt_salir = Button(frame_entrada, text="Salir", command=toplevel_imc.destroy)
     bt_salir.place(x=360, y=130, width=70, height=40)
 
 ventana_principal = Tk()
