@@ -1,4 +1,6 @@
 
+#  Georgina Estefania Carvajal Contreras :)
+
 from tkinter import *
 from tkinter import messagebox, ttk
 
@@ -214,8 +216,21 @@ au = StringVar ()
 b = StringVar()
 global logo
 
+# salir
+def salir():
+    messagebox.showinfo("Perfil Del Estudiante", "La app se va a cerrar")
+    ventana_principal.destroy()
+
 barra_menu = Menu()
 ventana_principal.config(menu=barra_menu)
+
+menu_convertir = Menu(tearoff=0)
+menu_convertir.add_separator()
+
+menu_salir = Menu(tearoff=0)
+menu_salir.add_command(label="Salir", command=salir)
+
+barra_menu.add_cascade(label="Salir", menu=menu_salir)
 
 frame_entrada = Frame(ventana_principal)
 frame_entrada.config(bg="white", width=480, height=220)
