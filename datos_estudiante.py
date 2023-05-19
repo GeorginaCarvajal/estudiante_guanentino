@@ -42,8 +42,7 @@ def abrir_toplevel_calificaciones():
         autoevaluacion = float(entry_au.get())
         bimestral = float(entry_b.get())
         
-        nota_definitiva = (0.3*cognitivo) + (0.3*procedimental) + (0.1*autoevaluacion) + (0.1*actitudinal) + (0.2*bimestral) / 5
-
+        nota_definitiva = (0.3*cognitivo) + (0.3*procedimental) + (0.1*autoevaluacion) + (0.1*actitudinal) + (0.2*bimestral)
      
         lb_r = Label(frame_entrada1, text =("Nota definitiva: " + str(nota_definitiva) ))  
         lb_r.config(bg="white", fg="black", font=("Abcissa", 15))
